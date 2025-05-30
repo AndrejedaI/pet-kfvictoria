@@ -1,0 +1,43 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block title %}{{ product.brand }} {{ product.name }}{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/detail_product.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="product-detail-container">
+    <ul class="breadcrumb-list">
+        {% for category in product.category.as_list %}
+            <li>
+                <a href="{% url 'products' %}?category={{ category.id }}">{{ category.name }}</a>
+            </li>
+        {% endfor %}
+        <li><a href="{% url 'products' %}?brand={{ product.brand.id }}">{{ product.brand }}</a></li>
+        <li>{{ product.name }}</li>
+    </ul>
+    <h1 class="product-name">{{ product.brand }} {{ product.name }} {{ product.weight }} г</h1>
+    <div class="product-info">
+      <div class="product-image-wrapper">
+        <img src="{{ product.img_original.url }}" alt="{{ product.name }}" class="product-detail-image">
+      </div>
+
+      <div class="pdp-regular-attrs">
+        <ul class="regular-characteristics">
+          <li><strong>Вес,в граммах:</strong> {{ product.weight }}</li>
+          {% for key, value in product.nutrition.items %}
+            <li><strong>{{ key|capfirst }}:</strong> {{ value }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="description-block">
+        <h3 class="description-title">Описание</h3>
+        <span class="description-text">
+            {{ product.description }}
+        </span>
+      </div>
+    </div>
+  </div>
+{% endblock %}

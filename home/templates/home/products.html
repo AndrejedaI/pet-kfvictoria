@@ -1,0 +1,55 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/products.css' %}">
+  <link rel="stylesheet" href="{% static 'css/checkbox.css' %}">
+{% endblock %}
+
+{% block title %}Продукция КФ Виктория{% endblock %}
+
+{% block content %}
+    <div class="catalog-wrapper">
+        <aside class="filter-sidebar">
+        <form method="get" class="filter-form">
+          <div class="filter-group">
+            <h4>Бренд</h4>
+            {% for checkbox in form.brand %}
+              <div class="filter-checkbox">
+                {{ checkbox.tag }}
+                <label for="{{ checkbox.id_for_label }}" class="checkbox-label">{{ checkbox.choice_label }}</label>
+              </div>
+            {% endfor %}
+          </div>
+
+          <div class="filter-group">
+            <h4>Категория</h4>
+            {% for checkbox in form.category %}
+                {% if checkbox.data.value != default_category.id %}
+                  <div class="filter-checkbox">
+                    {{ checkbox.tag }}
+                    <label for="{{ checkbox.id_for_label }}" class="checkbox-label">{{ checkbox.choice_label }}</label>
+                  </div>
+                {% endif %}
+            {% endfor %}
+          </div>
+          <div class="filter-button-container">
+            <button class="filter-button" type="submit">Применить</button>
+          </div>
+        </form>
+      </aside>
+
+      <div class="products-grid">
+        {% for product in products %}
+          <div class="product-card">
+           <img src="{{ product.img_preview.url }}" alt="{{ product.name }}" class="product-image">
+            <div class="photo-indicator-wrapper">
+              <div class="photo-indicator"></div>
+            </div>
+            <h3 class="product-name">{{ product.brand.name }} «{{ product.name }}»</h3>
+            <a href="{% url 'product_detail' brand_slug=product.brand.slug product_slug=product.slug %}" class="product-button">Подробнее</a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+{% endblock %}

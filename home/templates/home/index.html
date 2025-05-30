@@ -1,0 +1,42 @@
+{% extends "home/base_t.html" %}
+
+{% block title %}Кондитерская фабрика "Виктория"{% endblock %}
+
+
+{% block content %}
+    <section
+      class="min-h-screen flex flex-col justify-center items-center bg-gradient-to-r from-pink-100 to-yellow-100 text-center px-4"
+    >
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">Фабрика "Виктория"</h1>
+      <p class="text-lg md:text-2xl text-gray-600 max-w-xl">
+        Фасованные кондитерские изделия с любовью и заботой
+      </p>
+    </section>
+
+    <!-- Benefits -->
+    <section id="benefits" class="py-16 px-6 bg-white">
+      <div class="max-w-5xl mx-auto text-center fade-in" data-animate="true">
+        <h2 class="text-3xl font-semibold mb-6">Почему выбирают нас</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div>
+            <h3 class="text-xl font-bold mb-2">Качество</h3>
+            <p class="text-gray-600">
+              Продукция производится по ГОСТ с натуральными ингредиентами
+            </p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-2">Доставка</h3>
+            <p class="text-gray-600">
+              Работаем по всей стране — оптом и в розницу
+            </p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-2">Опыт</h3>
+            <p class="text-gray-600">
+              Более 15 лет на рынке — доверие партнёров и клиентов
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}

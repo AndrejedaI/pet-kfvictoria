@@ -1,0 +1,52 @@
+.cu_chbox {
+    appearance: none;
+    -webkit-appearance: none; /* для поддержки в Safari */
+}
+
+.cu_chbox {
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    background-color: #fff;
+    cursor: pointer;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    margin: 0;
+}
+
+.cu_chbox:checked,
+.checkbox-input:indeterminate {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+}
+
+.cu_chbox:active {
+    filter: brightness(90%);
+}
+
+/* Смена цвета границы при наведении */
+.cu_chbox:hover:not(:disabled) {
+    border-color: #0d6efd;
+}
+
+/* Стили для чекбокса при фокусе */
+.cu_chbox:focus {
+    border-color: #0d6efd;
+    outline: none;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Отключенный чекбокс */
+.cu_chbox:disabled {
+    filter: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.cu_chbox:disabled ~ .checkbox-label {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+

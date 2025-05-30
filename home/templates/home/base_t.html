@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+    <title>{% block title %}Кондитерская фабрика «Виктория»{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-800 font-sans">
+
+    <!-- Header -->
+    <header class="w-full bg-white shadow-md sticky top-0 z-50">
+      <div class="flex items-center justify-between px-5">
+          <a href="{% url 'home' %}">
+               <img src="{% static 'images/logo.png' %}" alt="Логотип" class="w-[180px] h-[72px] object-contain">
+          </a>
+        <nav class="flex space-x-6">
+          <a href="/about" class="text-pink-600 hover:text-pink-800 font-medium">О нас</a>
+          <a href="/products" class="text-pink-600 hover:text-pink-800 font-medium">Наша продукция</a>
+          <a href="/contacts" class="text-pink-600 hover:text-pink-800 font-medium">Контакты</a>
+        </nav>
+      </div>
+    </header>
+
+    {% block content%} {% endblock %}
+
+    <footer class="py-6 text-center text-gray-500 bg-white">
+       © 2010-2025 ООО «Кондитерская фабрика «Виктория». Все права защищены.
+    </footer>
+
+    <script>
+      const fadeInEls = document.querySelectorAll("[data-animate]");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      fadeInEls.forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>

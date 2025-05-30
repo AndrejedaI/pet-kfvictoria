@@ -1,0 +1,42 @@
+{% extends "home/base_t.html" %}
+
+{% block title %}О нас — Кондитерская фабрика "Виктория"{% endblock %}
+
+
+{% block content %}
+    <section class="bg-gradient-to-r from-yellow-100 to-pink-100 py-16 text-center px-4">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Контакты</h1>
+      <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
+        Свяжитесь с нами — мы всегда открыты к сотрудничеству и диалогу
+      </p>
+    </section>
+
+    <!-- Контактная информация -->
+    <section class="max-w-5xl mx-auto py-16 px-4 grid md:grid-cols-2 gap-12">
+      <div class="fade-in" data-animate>
+        <h2 class="text-2xl font-semibold mb-4">Наши контакты</h2>
+        <p class="text-gray-700 mb-2"><strong>Адрес:</strong> 352630, Краснодарский край, г. Белореченск, ул. Победы 102</p>
+        <p class="text-gray-700 mb-2"><strong>Телефон:</strong> <a href="tel:+78615531966" class="text-pink-600 hover:underline">+7(861) 553 19 66</a></p>
+        <p class="text-gray-700 mb-2"><strong>Email:</strong> <a href="mailto:info@victoria.ru" class="text-pink-600 hover:underline">info@victoria.ru</a></p>
+      </div>
+
+      <!-- Форма обратной связи -->
+      <div class="fade-in" data-animate>
+        <h2 class="text-2xl font-semibold mb-4">Форма обратной связи</h2>
+        <form action="#" method="post" class="space-y-4">
+          <input type="text" name="name" placeholder="Ваше имя" required class="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-pink-400">
+          <input type="email" name="email" placeholder="Ваш Email" required class="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-pink-400">
+          <textarea name="message" rows="5" placeholder="Ваше сообщение" required class="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-pink-400"></textarea>
+          <button type="submit" class="bg-pink-600 text-white px-6 py-2 rounded hover:bg-pink-700 transition">Отправить</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Карта -->
+    <section class="max-w-5xl mx-auto px-4 pb-16 fade-in" data-animate>
+      <h2 class="text-2xl font-semibold mb-4">Мы на карте</h2>
+      <div class="w-full h-52 rounded overflow-hidden shadow-md">
+        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A395e601c8db793ba98b5858ea44e52d844ab53376dbc91ccf986c7e22e37aaa8&amp;source=constructor" width="100%" height="100%" frameborder="0"></iframe>
+      </div>
+    </section>
+{% endblock %}

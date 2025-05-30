@@ -1,0 +1,89 @@
+.product-image-wrapper {
+  background-color: rgba(232, 235, 236, 0.8);
+  width: 300px;
+  height: 300px;
+  padding: 7rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-detail-image {
+  max-width: 500px;
+  height: 100%;
+  object-fit: contain;
+}
+
+.product-info {
+  display: flex;
+}
+
+.regular-characteristics {
+  margin-top: 5px;
+  list-style: none;
+  padding: 0;
+}
+
+.product-detail-container {
+  margin-left: 20rem;
+  margin-top: 1rem;
+}
+
+.pdp-regular-attrs {
+  margin-left: 20px;
+}
+
+.breadcrumb-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 0.3rem;
+  font-size: 14px;
+}
+
+.breadcrumb-list li {
+    color: #8d969d;
+}
+
+.breadcrumb-list a {
+  color: #8d969d;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb-list a:hover {
+  color: #db2777;
+}
+
+.breadcrumb-list li::after {
+  content: "—";
+  margin: 0 0.5rem;
+  color: #8d969d;
+  font-size: 15px;
+}
+
+.breadcrumb-list li:last-child::after {
+  content: "";
+}
+
+.description-text {
+  display: block;
+  white-space: normal;
+  word-wrap: break-word;
+  margin-left: 35px;
+  text-align: left;
+}
+
+.description-title {
+  margin-top: 3px;
+}
+
+.description-block {
+  max-width: 600px;
+  margin-left: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
